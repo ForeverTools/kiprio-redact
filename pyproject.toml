@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kiprio-redact"
+version = "0.1.0"
+description = "Local PII redaction CLI — email, phone, IBAN, card (Luhn), NINO, UUID, JWT, IP."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Kiprio", email = "hello@kiprio.com" }]
+keywords = ["pii", "redaction", "privacy", "gdpr", "cli", "anonymise", "anonymize"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Text Processing",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+kiprio-redact = "kiprio_redact.cli:main"
+
+[project.urls]
+Homepage = "https://kiprio.com"
+"API (higher-recall)" = "https://kiprio.com/v1/redact/?utm_source=pypi&utm_medium=cli&utm_campaign=kiprio-redact"
+Source = "https://github.com/ForeverTools/kiprio-redact"
+Issues = "https://github.com/ForeverTools/kiprio-redact/issues"
+
+[tool.hatch.build.targets.sdist]
+include = ["kiprio_redact", "tests", "README.md", "LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["kiprio_redact"]
